@@ -1,0 +1,3 @@
+CHANGED,C:\Users\birha\Downloads\colorPicker\app\build\intermediates\transforms\instantRun\debug\folders\1\5\main\com\example\edobamo\colorpicker\MainActivity$6.class
+CHANGED,C:\Users\birha\Downloads\colorPicker\app\build\intermediates\transforms\instantRun\debug\folders\1\5\main\com\example\edobamo\colorpicker\MainActivity.class
+CHANGED,C:\Users\birha\Downloads\colorPicker\app\build\intermediates\transforms\instantRun\debug\folders\1\5\main\com\example\edobamo\colorpicker\MainActivity$5.class
