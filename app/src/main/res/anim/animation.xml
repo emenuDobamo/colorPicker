@@ -3,14 +3,6 @@
     android:repeatMode="reverse"
     android:shareInterpolator="true"
     android:startOffset="100">
-
-    <translate
-        android:fromXDelta="0"
-        android:fromYDelta="0"
-        android:toXDelta="@android:integer/config_mediumAnimTime"
-        android:toYDelta="@android:integer/config_mediumAnimTime"
-        android:duration="1000"
-        />
     <scale
         android:duration="1000"
         android:fromXScale="1"
@@ -22,6 +14,14 @@
         android:toYScale="3"
 
         />
+    <translate
+        android:fromXDelta="0"
+        android:fromYDelta="0"
+        android:toXDelta="@android:integer/config_mediumAnimTime"
+        android:toYDelta="@android:integer/config_mediumAnimTime"
+        android:duration="1000"
+        />
+
 
 
 </set>
