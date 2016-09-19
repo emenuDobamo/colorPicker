@@ -3,8 +3,11 @@ package com.example.edobamo.colorpicker;
 import android.animation.Animator;
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorListenerAdapter;
+import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -21,17 +24,18 @@ import android.widget.GridView;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-     View view1;
+    View view1;
     SeekBar red_seekbar;
     SeekBar blue_seekbar;
     SeekBar green_seekbar;
     CardView cardView;
-     GridLayout grid_layout ;
+    GridLayout grid_layout;
 
 
     @Override
@@ -45,29 +49,28 @@ public class MainActivity extends AppCompatActivity {
         grid_layout = (GridLayout) findViewById(R.id.grid);
         CardView cardView00 = (CardView) findViewById(R.id.card00);
         cardView = (CardView) findViewById(R.id.card);
+        Toast.makeText(getApplicationContext(), "Long press to pick color", Toast.LENGTH_LONG).show();
 
-        long_clicked(cardView   );
+        long_clicked(cardView);
 
-        view1=(View)findViewById(R.id.frame);
+        view1 = (View) findViewById(R.id.frame);
 
         colorChanger(cardView);
 
 
     }
-public void long_clicked(CardView view) {
 
-    view.setOnLongClickListener(new View.OnLongClickListener() {
-        @Override
-        public boolean onLongClick(View view) {
+    public void long_clicked(CardView view) {
 
-            Log.i("onLongclicked", "long clicked");
-            pop_up(view, (int) view.getX(), (int) view.getY());
-            return true;
-        }
-    });
-}
+        view.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
 
-
+                pop_up(view, (int) view.getX(), (int) view.getY());
+                return true;
+            }
+        });
+    }
 
 
     public void colorChanger(final View view) {
@@ -83,7 +86,6 @@ public void long_clicked(CardView view) {
                 redtext.setText(String.valueOf(redNum));
                 view.setBackgroundColor(Color.rgb(red_seekbar.getProgress(), green_seekbar.getProgress(), blue_seekbar.getProgress()));
                 cardView.setBackgroundColor(Color.rgb(red_seekbar.getProgress(), green_seekbar.getProgress(), blue_seekbar.getProgress()));
-
 
 
                 TextView textView = (TextView) findViewById(R.id.text00);
@@ -155,7 +157,7 @@ public void long_clicked(CardView view) {
                 cardView.setBackgroundColor(Color.rgb(red_seekbar.getProgress(), green_seekbar.getProgress(), blue_seekbar.getProgress()));
 
                 view.setBackgroundColor(Color.rgb(red_seekbar.getProgress(), green_seekbar.getProgress(), blue_seekbar.getProgress()));
-                Log.i(String.valueOf(view.getId()),"id");
+                Log.i(String.valueOf(view.getId()), "id");
 
                 Integer.toHexString(greenNum);
 
@@ -186,13 +188,15 @@ public void long_clicked(CardView view) {
 
 
     public void clicked00(View view) {
-TextView textView = (TextView) findViewById(R.id.text00);
-        pop_up(view, ((int) view.getX()), (int) view.getY());
+        TextView textView = (TextView) findViewById(R.id.text00);
+        // pop_up(view, ((int) view.getX()), (int) view.getY());
 //       textView.setText(color_name(red_seekbar.getProgress(), green_seekbar.getProgress(), blue_seekbar.getProgress()));
-        long_clicked((CardView) view);
-//
-       colorChanger(view);
+        open_window(view);
 
+        long_clicked((CardView) view);
+        ((CardView) view).setTranslationZ(20);
+
+        colorChanger(view);
 
 
     }
@@ -202,8 +206,9 @@ TextView textView = (TextView) findViewById(R.id.text00);
         long_clicked((CardView) view);
 
         textView.setText(color_name(red_seekbar.getProgress(), green_seekbar.getProgress(), blue_seekbar.getProgress()));
+        open_window(view);
 
-        pop_up(view, ((int) view.getX()), (int) view.getY());
+        // pop_up(view, ((int) view.getX()), (int) view.getY());
         // if(okClicked(view))
         colorChanger(view);
     }
@@ -213,8 +218,9 @@ TextView textView = (TextView) findViewById(R.id.text00);
         long_clicked((CardView) view);
 
         textView.setText(color_name(red_seekbar.getProgress(), green_seekbar.getProgress(), blue_seekbar.getProgress()));
+        open_window(view);
 
-        pop_up(view, ((int) view.getX()), (int) view.getY());
+        //pop_up(view, ((int) view.getX()), (int) view.getY());
         // if(okClicked(view))
         colorChanger(view);
 
@@ -224,10 +230,11 @@ TextView textView = (TextView) findViewById(R.id.text00);
         TextView textView = (TextView) findViewById(R.id.text11);
         long_clicked((CardView) view);
 
-       // textView.setText(color_name(red_seekbar.getProgress(), green_seekbar.getProgress(), blue_seekbar.getProgress()));
+        // textView.setText(color_name(red_seekbar.getProgress(), green_seekbar.getProgress(), blue_seekbar.getProgress()));
+        open_window(view);
 
-        pop_up(view, ((int) view.getX()), (int) view.getY());
-        // if(okClicked(view))
+        //pop_up(view, ((int) view.getX()), (int) view.getY());
+        // // if(okClicked(view))
         colorChanger(view);
     }
 
@@ -236,8 +243,9 @@ TextView textView = (TextView) findViewById(R.id.text00);
         long_clicked((CardView) view);
 
         textView.setText(color_name(red_seekbar.getProgress(), green_seekbar.getProgress(), blue_seekbar.getProgress()));
+        open_window(view);
 
-        pop_up(view, ((int) view.getX()), (int) view.getY());
+        //pop_up(view, ((int) view.getX()), (int) view.getY());
         // if(okClicked(view))
         colorChanger(view);
     }
@@ -247,10 +255,12 @@ TextView textView = (TextView) findViewById(R.id.text00);
         long_clicked((CardView) view);
 
         textView.setText(color_name(red_seekbar.getProgress(), green_seekbar.getProgress(), blue_seekbar.getProgress()));
+        open_window(view);
 
-        pop_up(view, ((int) view.getX()), (int) view.getY());
+        //pop_up(view, ((int) view.getX()), (int) view.getY());
         // if(okClicked(view))
         colorChanger(view);
+        Intent intent ;
     }
 
     public void clicked30(View view) {
@@ -258,8 +268,9 @@ TextView textView = (TextView) findViewById(R.id.text00);
         long_clicked((CardView) view);
 
         textView.setText(color_name(red_seekbar.getProgress(), green_seekbar.getProgress(), blue_seekbar.getProgress()));
+        open_window(view);
 
-        pop_up(view, ((int) view.getX()), (int) view.getY());
+        //pop_up(view, ((int) view.getX()), (int) view.getY());
 
         colorChanger(view);
     }
@@ -268,14 +279,16 @@ TextView textView = (TextView) findViewById(R.id.text00);
         TextView textView = (TextView) findViewById(R.id.text31);
         textView.setText(color_name(red_seekbar.getProgress(), green_seekbar.getProgress(), blue_seekbar.getProgress()));
         long_clicked((CardView) view);
-
-        pop_up(view, ((int) view.getX()), (int) view.getY());
+        open_window(view);
         // if(okClicked(view))
-        colorChanger(view);    }
+        colorChanger(view);
+    }
 
-    public void open_window(View view){
-
-
+    public void open_window(View view) {
+        view.setTranslationZ(20);
+        Animation animation = AnimationUtils.loadAnimation(this,R.anim.animation);
+        view.setAnimation(animation);
+        animation.start();
 
 
     }
@@ -306,7 +319,6 @@ TextView textView = (TextView) findViewById(R.id.text00);
                 });
 
 
-
                 anim.start();
                 grid_layout.setAlpha(1f);
             }
@@ -322,11 +334,9 @@ TextView textView = (TextView) findViewById(R.id.text00);
         final SeekBar blue_seekbar = (SeekBar) findViewById(R.id.blueSeek);
         final SeekBar green_seekbar = (SeekBar) findViewById(R.id.greenSeek);
         grid_layout.setAlpha(1f);
-        int cx =view1.getWidth();
+        int cx = view1.getWidth();
         int cy = view1.getHeight();
         float radius = (float) Math.hypot(cx, cy);
-
-
 
 
         if (view1.getVisibility() == View.VISIBLE) {
@@ -350,29 +360,40 @@ TextView textView = (TextView) findViewById(R.id.text00);
             view1.setBackgroundColor(Color.rgb(red_seekbar.getProgress(), green_seekbar.getProgress(), blue_seekbar.getProgress()));
 
         }
+
+        String r,g,b;
+        r = ""+red_seekbar.getProgress();
+        g = ""+green_seekbar.getProgress();
+        b = ""+blue_seekbar.getProgress();
+
+
+//        Intent returnIntent = new Intent();
+//        returnIntent.putExtra(r,"red");
+//        returnIntent.putExtra(g,"green");
+//        returnIntent.putExtra(b,"blue");
+//
+//        setResult(Activity.RESULT_OK,returnIntent);
+//       finish();
         return true;
     }
 
-    public void floating_action_clicked(View view){
+    public void floating_action_clicked(View view) {
 
-        pop_up(view,150,150);
+        pop_up(view, 150, 150);
     }
-public String color_name(int r, int g, int b) {
-    TextView textView = (TextView) findViewById(R.id.text00);
 
-    if(r<30){
-        if(g<30){
-            if (b<30){
-                return "BLACK";
-            }
+    public String color_name(int r, int g, int b) {
+        TextView textView = (TextView) findViewById(R.id.text00);
+
+        if (r < 30) {
+            if (g < 30) {
+                if (b < 30) {
+                    return "BLACK";
+                }
                 return "BLUE";
-        }
+            }
             return "GREEN";
-    }
-   else
-    return "RED";
+        } else
+            return "RED";
 
-}
-}
-
-
+    }}

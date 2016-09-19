@@ -4,41 +4,48 @@
     api-level="23"
     density="420dpi"
     format="7"
-    timestamp="23358520107835"
+    timestamp="4391526293936"
     token="-2335798093024413931"
     verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="182" />
+        duration="142" />
     <task
         name="instant-run-dex"
-        duration="770" />
+        duration="778" />
     <task
         name="instant-run-transform"
-        duration="33" />
+        duration="18" />
     <task
         name="verifier"
-        duration="7" />
+        duration="2" />
 
     <artifact
         location="C:\Users\birha\Downloads\colorPicker\app\build\intermediates\reload-dex\debug\classes.dex"
         type="RELOAD_DEX" />
 
-    <build timestamp="386126696591" >
+    <build timestamp="1599170222289" >
         <artifact
             location="C:\Users\birha\Downloads\colorPicker\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
     <build
-        timestamp="23190950364483"
-        verifier="METHOD_ADDED" >
+        timestamp="3720070619682"
+        verifier="FIELD_ADDED" >
         <artifact
             location="C:\Users\birha\Downloads\colorPicker\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_5\classes.dex"
             type="DEX" />
     </build>
     <build
-        timestamp="23358520107835"
+        timestamp="4160966851147"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="C:\Users\birha\Downloads\colorPicker\app\build\intermediates\builds\debug\4160966851147\classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="4391526293936"
         verifier="COMPATIBLE" >
         <artifact
             location="C:\Users\birha\Downloads\colorPicker\app\build\intermediates\reload-dex\debug\classes.dex"
